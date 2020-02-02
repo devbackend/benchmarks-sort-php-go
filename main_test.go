@@ -8,9 +8,9 @@ type QuickSortCase struct {
 }
 
 var quickSortCases = []QuickSortCase{
-	QuickSortCase{[]int{1}, []int{1}},
-	QuickSortCase{[]int{2, 1}, []int{1, 2}},
-	QuickSortCase{[]int{1, 3, 2, 1}, []int{1, 1, 2, 3}},
+	{[]int{1}, []int{1}},
+	{[]int{2, 1}, []int{1, 2}},
+	{[]int{1, 3, 2, 1}, []int{1, 1, 2, 3}},
 }
 
 func TestQuickSort(t *testing.T) {
@@ -18,7 +18,7 @@ func TestQuickSort(t *testing.T) {
 		result := QuickSort(c.input)
 
 		if !Compare(result, c.expected) {
-			t.Error("TestQuickSort: провален кейс №", k, "Input:", c.input, "Result:", result, "Expected", c.expected)
+			t.Error("TestQuickSort: failed case №", k, "Input:", c.input, "Result:", result, "Expected", c.expected)
 		}
 	}
 }
@@ -30,11 +30,11 @@ type CompareCase struct {
 }
 
 var compareCases = []CompareCase{
-	CompareCase{[]int{1}, []int{1}, true},
-	CompareCase{[]int{1}, []int{2}, false},
-	CompareCase{[]int{1, 1}, []int{2}, false},
-	CompareCase{[]int{1, 2}, []int{1, 2}, true},
-	CompareCase{[]int{2, 1}, []int{3, 1}, false},
+	{[]int{1}, []int{1}, true},
+	{[]int{1}, []int{2}, false},
+	{[]int{1, 1}, []int{2}, false},
+	{[]int{1, 2}, []int{1, 2}, true},
+	{[]int{2, 1}, []int{3, 1}, false},
 }
 
 func TestCompare(t *testing.T) {
